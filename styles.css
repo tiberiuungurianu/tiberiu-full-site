@@ -115,7 +115,6 @@ body:has(.menu.open) .topbar .menu-trigger { text-shadow: none; }
   background: var(--text);
   transform: scaleX(0);
   transform-origin: left center;
-  will-change: transform;
 }
 
 .menu {
@@ -660,11 +659,29 @@ section:not(.hero) { position: relative; }
 }
 
 @media (hover: none), (pointer: coarse) {
+  html { scroll-behavior: auto; }
   .noise { display: none; }
+  .progress { display: none; }
   .pill {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     background: rgba(0,0,0,.28);
+  }
+  .menu {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .hero-media img,
+  .model-shot img {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .reveal,
+  .model-grid .model-shot,
+  .link-stack .big-link {
+    opacity: 1;
+    transform: none;
   }
 }
 

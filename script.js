@@ -30,7 +30,10 @@ document.querySelectorAll('img').forEach(img => {
   else img.addEventListener('load', show, { once: true });
 });
 
+const coarsePointer = matchMedia('(pointer: coarse), (hover: none)').matches;
+
 function updateProgress() {
+  if (!progress || coarsePointer) return;
   const max = document.documentElement.scrollHeight - window.innerHeight;
   const ratio = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
   progress.style.transform = `scaleX(${ratio})`;
