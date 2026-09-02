@@ -14,20 +14,16 @@ There is intentionally no software-engineering section.
 
 ## Photos
 
-Images live in the `images/` folder and are referenced from `index.html`:
+The site serves compressed `.webp` files from `images/`. Original JPGs in the same folder are source files only.
 
-- `tiberiu-ungurianu-portrait.jpg` — homepage hero
-- `tiberiu-ungurianu-beauty-editorial.JPG` — tall modelling shot
-- `tiberiu-ungurianu-editorial-closeup.JPG`
-- `tiberiu-ungurianu-sunglasses-editorial.JPG`
-- `tiberiu-ungurianu-leather-editorial.JPG`
-- `tiberiu-ungurianu-back-to-roots.JPG`
+- `tiberiu-ungurianu-portrait.webp` — homepage hero
+- `tiberiu-ungurianu-beauty-editorial.webp` — tall modelling shot
+- `tiberiu-ungurianu-editorial-closeup.webp`
+- `tiberiu-ungurianu-sunglasses-editorial.webp`
+- `tiberiu-ungurianu-leather-editorial.webp`
+- `tiberiu-ungurianu-back-to-roots.webp`
 
-Recommended:
-
-- Hero: portrait, at least 1800 × 2400 px
-- Modelling images: at least 1400 px on the shortest side
-- JPG/WebP, ideally under ~1 MB each after compression
+WebP versions are resized to ~1600–2000 px on the long side. Keep originals if you need to re-export.
 
 ## Current links
 
