@@ -69,3 +69,87 @@ addEventListener('scroll', () => {
 }, { passive: true });
 addEventListener('resize', () => requestAnimationFrame(updateScrollUI));
 updateScrollUI();
+
+function externalAnchor(href, className) {
+  const anchor = document.createElement('a');
+  anchor.className = className;
+  anchor.href = href;
+  anchor.target = '_blank';
+  anchor.rel = 'noopener noreferrer';
+  return anchor;
+}
+
+function applyLinks(data) {
+  const links = Array.isArray(data.links) ? data.links.filter((link) => link && link.href && link.label) : [];
+  const shown = links.filter((link) => link.visible !== false);
+
+  const hero = document.querySelector('.hero-actions');
+  if (hero) {
+    hero.replaceChildren(...shown.filter((link) => link.hero).map((link) => {
+      const anchor = externalAnchor(link.href, 'pill');
+      anchor.setAttribute('aria-label', [link.label, link.detail].filter(Boolean).join(' '));
+      const name = document.createElement('span');
+      name.textContent = link.label;
+      const arrow = document.createElement('span');
+      arrow.textContent = '↗';
+      anchor.append(name, arrow);
+      return anchor;
+    }));
+  }
+
+  const stack = document.querySelector('.link-stack');
+  if (stack) {
+    stack.replaceChildren(...shown.filter((link) => !link.hero).map((link) => {
+      const anchor = externalAnchor(link.href, 'big-link');
+      const name = document.createElement('span');
+      name.textContent = link.label;
+      const arrow = document.createElement('span');
+      arrow.textContent = '↗';
+      anchor.append(name, arrow);
+      if (link.detail) {
+        const note = document.createElement('span');
+        note.className = 'visually-hidden';
+        note.textContent = link.detail;
+        anchor.append(note);
+      }
+      return anchor;
+    }));
+  }
+
+  const email = document.querySelector('.contact-email');
+  if (email && data.email && data.email.href) {
+    email.href = data.email.href;
+    const label = data.email.label || data.email.href.replace(/^mailto:/, '');
+    const at = label.indexOf('@');
+    if (at > 0) {
+      email.replaceChildren(
+        document.createTextNode(label.slice(0, at)),
+        document.createElement('br'),
+        document.createTextNode(label.slice(at))
+      );
+    } else {
+      email.textContent = label;
+    }
+  }
+
+  const structured = document.querySelector('script[type="application/ld+json"]');
+  if (!structured) return;
+
+  try {
+    const graph = JSON.parse(structured.textContent);
+    const person = graph['@graph']?.find((node) => node['@type'] === 'Person');
+    if (!person) return;
+    person.sameAs = links.filter((link) => link.sameAs !== false).map((link) => link.href);
+    structured.textContent = JSON.stringify(graph);
+  } catch {
+    /* leave the structured data as published */
+  }
+}
+
+fetch('./links.json', { cache: 'no-cache' })
+  .then((response) => {
+    if (!response.ok) throw new Error('links.json unavailable');
+    return response.json();
+  })
+  .then(applyLinks)
+  .catch(() => {});

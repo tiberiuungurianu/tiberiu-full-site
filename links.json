@@ -1,0 +1,61 @@
+{
+  "email": {
+    "label": "contactiberiu@gmail.com",
+    "href": "mailto:contactiberiu@gmail.com"
+  },
+  "links": [
+    {
+      "label": "TikTok",
+      "detail": "@tiberiu",
+      "href": "https://www.tiktok.com/@tiberiu",
+      "hero": true
+    },
+    {
+      "label": "TikTok II",
+      "detail": "@tiberiu.ungurianu",
+      "href": "https://www.tiktok.com/@tiberiu.ungurianu"
+    },
+    {
+      "label": "Instagram",
+      "detail": "@not.tiberiu",
+      "href": "https://www.instagram.com/not.tiberiu/",
+      "hero": true
+    },
+    {
+      "label": "Instagram II",
+      "detail": "@tiberiu.ungurianu",
+      "href": "https://www.instagram.com/tiberiu.ungurianu/",
+      "hero": true
+    },
+    {
+      "label": "YouTube",
+      "detail": "@onlytiberiu",
+      "href": "https://www.youtube.com/@onlytiberiu"
+    },
+    {
+      "label": "Famous Birthdays",
+      "detail": "Profile",
+      "href": "https://www.famousbirthdays.com/people/tiberiu-ungurianu.html"
+    },
+    {
+      "label": "Pinterest",
+      "detail": "tiberiuseptimiu",
+      "href": "https://www.pinterest.co.uk/tiberiuseptimiu/"
+    },
+    {
+      "label": "Snapchat",
+      "detail": "tiberiungurianu",
+      "href": "https://www.snapchat.com/add/tiberiungurianu"
+    },
+    {
+      "label": "Wishlist",
+      "href": "https://www.amazon.co.uk/hz/wishlist/ls/NGODZZNVYEVX?ref_=wl_share",
+      "sameAs": false
+    },
+    {
+      "label": "Linktree",
+      "href": "https://linktr.ee/tiberiu.ungurianu",
+      "visible": false
+    }
+  ]
+}
