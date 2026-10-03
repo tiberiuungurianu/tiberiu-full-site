@@ -10,7 +10,9 @@ function setMenu(open) {
 }
 
 menuTrigger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
-menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+menu.addEventListener('click', (e) => {
+  if (e.target.closest('a')) setMenu(false);
+});
 document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
 const reveals = document.querySelectorAll('.reveal');
@@ -114,6 +116,29 @@ function applyLinks(data) {
       }
       return anchor;
     }));
+  }
+
+  const menuLinks = document.querySelector('.menu-links');
+  if (menuLinks) {
+    const items = [];
+    if (data.email && data.email.href) {
+      const contact = document.createElement('a');
+      contact.className = 'menu-link';
+      contact.href = data.email.href;
+      contact.textContent = 'Contact me';
+      items.push(contact);
+    }
+    shown.forEach((link) => {
+      const anchor = externalAnchor(link.href, 'menu-link');
+      anchor.append(document.createTextNode(link.label));
+      if (link.detail) {
+        const detail = document.createElement('small');
+        detail.textContent = link.detail;
+        anchor.append(detail);
+      }
+      items.push(anchor);
+    });
+    menuLinks.replaceChildren(...items);
   }
 
   const email = document.querySelector('.contact-email');
