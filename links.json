@@ -19,7 +19,8 @@
       "label": "Instagram",
       "detail": "@tiberiuuuus",
       "href": "https://www.instagram.com/tiberiuuuus",
-      "hero": true
+      "hero": false,
+      "visible": false
     },
     {
       "label": "Instagram II",
@@ -30,7 +31,9 @@
     {
       "label": "YouTube",
       "detail": "@tiberiuus",
-      "href": "https://youtube.com/@tiberiuus?si=awtEfoIEmd600K22"
+      "href": "https://youtube.com/@tiberiuus?si=awtEfoIEmd600K22",
+      "hero": false,
+      "visible": false
     },
     {
       "label": "Famous Birthdays",
