@@ -17,6 +17,10 @@ window.__TIBERIU_ANALYTICS__ = {
   /* Leave empty if Web Analytics is already injected automatically in the CF dashboard */
   cloudflareBeaconToken: "",
 
-  /* Only these hosts send analytics (production). */
-  productionHosts: ["www.tiberiu.online", "tiberiu.online"],
+  /* Hosts allowed to send analytics (production + pre-prod). */
+  productionHosts: [
+    "www.tiberiu.online",
+    "tiberiu.online",
+    "ppd.tiberiu.online",
+  ],
 };

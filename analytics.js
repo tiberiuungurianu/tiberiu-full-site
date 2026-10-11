@@ -44,6 +44,10 @@
     if (host.endsWith(".pages.dev") || host.endsWith(".vercel.app") || host.endsWith(".netlify.app")) {
       return false;
     }
+    /* Pre-prod Worker preview: tiberiu-full-site-ppd*.workers.dev */
+    if (host.indexOf("tiberiu-full-site-ppd") === 0 && host.endsWith(".workers.dev")) {
+      return true;
+    }
     return hosts.indexOf(host) !== -1;
   }
 
