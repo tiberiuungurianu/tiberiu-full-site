@@ -1,0 +1,42 @@
+{
+  "email": {
+    "label": "contactiberiu@gmail.com",
+    "href": "mailto:contactiberiu@gmail.com"
+  },
+  "links": [
+    {
+      "label": "TikTok",
+      "detail": "@tiberiu",
+      "href": "https://www.tiktok.com/@tiberiu",
+      "hero": true,
+      "verified": true
+    },
+    {
+      "label": "TikTok II",
+      "detail": "@tiberiu.ungurianu",
+      "href": "https://www.tiktok.com/@tiberiu.ungurianu"
+    },
+    {
+      "label": "Instagram",
+      "detail": "@not.tiberiu",
+      "href": "https://www.instagram.com/not.tiberiu/",
+      "hero": true
+    },
+    {
+      "label": "Instagram II",
+      "detail": "@tiberiu.ungurianu",
+      "href": "https://www.instagram.com/tiberiu.ungurianu/",
+      "hero": true
+    },
+    {
+      "label": "YouTube",
+      "detail": "@onlytiberiu",
+      "href": "https://www.youtube.com/@onlytiberiu"
+    },
+    {
+      "label": "Famous Birthdays",
+      "detail": "Profile",
+      "href": "https://www.famousbirthdays.com/people/tiberiu-ungurianu.html"
+    }
+  ]
+}

@@ -1,70 +1,37 @@
-# TIBERIU — full personal site
+# TIBERIU — PPD-changes (pre-prod)
 
-A static, mobile-first personal site designed to replace Linktree while also working as a creator and modelling portfolio.
+Next.js editorial remake imported from [`live-2.1-remake`](https://github.com/tiberiuungurianu/live-2.1-remake), deployed to **pre-prod only**.
 
-## Sections
+| | |
+|---|---|
+| Branch | `PPD-changes` |
+| Cloudflare Worker | `tiberiu-full-site-ppd` |
+| URL | https://ppd.tiberiu.online |
+| Production (`tiberiu.online`) | stays on the static Worker `tiberiu-full-site` — do not deploy this branch there |
 
-- Home / hero
-- About
-- Modelling
-- Around the web
-- Email
+## Local
 
-There is intentionally no software-engineering section.
-
-## Photos
-
-The site serves compressed `.webp` files from `images/`. Original JPGs in the same folder are source files only.
-
-- `tiberiu-ungurianu-portrait.webp` — homepage hero
-- `tiberiu-ungurianu-beauty-editorial.webp` — tall modelling shot
-- `tiberiu-ungurianu-editorial-closeup.webp`
-- `tiberiu-ungurianu-sunglasses-editorial.webp`
-- `tiberiu-ungurianu-leather-editorial.webp`
-- `tiberiu-ungurianu-back-to-roots.webp`
-
-WebP versions are resized to ~1600–2000 px on the long side. Keep originals if you need to re-export.
-
-## Links
-
-Edit **`links.json`** only (not `index.html`).
-
-- `"hero": true` — shows in the hero buttons  
-- omit `hero` (or `false`) — shows under Around the web / menu  
-- **`"visible": false`** — hides the link everywhere (keeps it in the file for later)
-
-Example — hide Snapchat without deleting it:
-
-```json
-{
-  "label": "Snapchat",
-  "detail": "tiberiungurianu",
-  "href": "https://www.snapchat.com/add/tiberiungurianu",
-  "visible": false
-}
+```bash
+npm install
+npm run dev
 ```
 
-Then deploy (`npm run deploy`) so production picks up the change.
+Open http://localhost:3000
 
-## Branches & Cloudflare
+## Deploy pre-prod
 
-| Branch | Deploy command | Cloudflare Worker | URL |
-|---|---|---|---|
-| `main` / production work | `npm run deploy` | `tiberiu-full-site` | https://tiberiu.online |
-| `PPD-changes` (pre-prod) | `npm run deploy:ppd` | `tiberiu-full-site-ppd` | https://ppd.tiberiu.online |
+```bash
+npm run deploy:ppd
+```
 
-Pre-prod does **not** overwrite production (`tiberiu.online`).
+Builds with OpenNext for Cloudflare, then deploys to `tiberiu-full-site-ppd`.
 
-## Deploy
+## Content
 
-No build step is required. Upload the folder directly to:
+- `src/content/site.ts`
+- `src/content/links.ts` — use `"visible": false` to hide links
+- `src/content/gallery.ts`
 
-- Cloudflare Pages
-- Vercel
-- Netlify
-- GitHub Pages
-- Any standard static web host
+## Legacy
 
-For a custom domain, point the domain at whichever host you choose.
-
-Production analytics (Cloudflare Web Analytics + PostHog EU, consent-gated) are documented in [`docs/analytics.md`](docs/analytics.md).
+Previous static site snapshot: `_legacy/`

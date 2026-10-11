@@ -1,0 +1,38 @@
+:root {
+  --ink: #0c0b0a;
+  --ink-soft: #171412;
+  --newsprint: #e7dfd1;
+  --newsprint-warm: #dccfb8;
+  --paper: #f2ebe0;
+  --oxblood: #6e1a28;
+  --oxblood-bright: #9a2438;
+  --oxblood-deep: #4a1019;
+  --smoke: #9a948c;
+  --smoke-on-light: #5a554e;
+  --text: #f2ebe0;
+  --text-on-light: #0c0b0a;
+  --line: rgba(242, 235, 224, 0.18);
+  --line-on-light: rgba(12, 11, 10, 0.16);
+
+  /* legacy aliases used across components */
+  --bg: var(--ink);
+  --bg-secondary: var(--ink-soft);
+  --ivory: var(--newsprint);
+  --muted: var(--smoke);
+  --muted-on-light: var(--smoke-on-light);
+  --burgundy: var(--oxblood);
+
+  --max: 1600px;
+  --pad: clamp(16px, 3.2vw, 40px);
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-hover: 320ms;
+  --duration-reveal: 600ms;
+  --duration-menu: 480ms;
+  --header-h: clamp(64px, 6vw, 84px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ease-editorial: linear;
+  }
+}

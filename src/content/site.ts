@@ -1,0 +1,91 @@
+export const site = {
+  name: "TIBERIU",
+  personName: "Tiberiu Ungurianu",
+  url: "https://www.tiberiu.online/",
+  locale: "en_GB",
+  themeColor: "#0c0b0a",
+  code: "71885",
+  city: "London",
+  title: "Tiberiu Ungurianu — TIBERIU",
+  description:
+    "Official website of Tiberiu Ungurianu — London-based creator and model. Selected images, modelling and online presence.",
+  ogImage: "/images/og.jpg",
+  email: {
+    label: "contactiberiu@gmail.com",
+    href: "mailto:contactiberiu@gmail.com",
+  },
+  hero: {
+    masthead: "TIBERIU",
+    line: "Creator · Model · London",
+    meta: "71885 / London",
+    issue: "Personal Editorial",
+    chapter: "01",
+    scrollNote: "Scroll to explore",
+    image: {
+      src: "/images/tiberiu-ungurianu-portrait.webp",
+      mobileSrc: "/images/tiberiu-ungurianu-portrait-1200.webp",
+      width: 1621,
+      height: 2000,
+      alt: "Tiberiu Ungurianu, London creator and model",
+    },
+  },
+  about: {
+    eyebrow: "About",
+    title: "Who I am.",
+    paragraphs: [
+      "I'm Tiberiu, a London-based creator and model. I started creating content in 2020, building an audience through short-form video while also working professionally in modelling.",
+      "After several years working with talent and modelling agencies in Romania, I'm now based in London and developing the next chapter of my work in the UK.",
+    ],
+    portrait: {
+      src: "/images/tiberiu-ungurianu-portrait.webp",
+      mobileSrc: "/images/tiberiu-ungurianu-portrait-1200.webp",
+      width: 1621,
+      height: 2000,
+      alt: "Portrait of Tiberiu Ungurianu",
+    },
+    notes: [
+      { label: "Creator since", value: "2020" },
+      { label: "Modelling experience", value: "4+ years" },
+    ],
+    agency: {
+      label: "Previously represented by",
+      value: "Global Talent United Romania × MRA Romania",
+    },
+  },
+  selected: {
+    eyebrow: "Selected",
+    title: "Selected\nshots.",
+    intro: "A selection of modelling and editorial images.",
+    meta: "Selected images from modelling, fashion and personal shoots.",
+    locale: "London / Romania",
+  },
+  around: {
+    eyebrow: "Around the web",
+    title: "Around\nthe web.",
+    intro: "A few other places you can find me.",
+  },
+  contact: {
+    eyebrow: "Contact",
+    title: "Let's work\ntogether.",
+    copy: "For collaborations, modelling, campaigns, representation and other enquiries.",
+    note: "hand-coded by yours truly — tuition put to good use lol",
+  },
+  nav: [
+    { href: "#home", label: "Cover", number: "01" },
+    { href: "#about", label: "Profile", number: "02" },
+    { href: "#selected", label: "Editorial", number: "03" },
+    { href: "#links", label: "Index", number: "04" },
+    { href: "#contact", label: "Contact", number: "05" },
+  ],
+  structuredData: {
+    alternateName: [
+      "Tiberiu",
+      "Tiberiu Septimiu Ungurianu",
+      "@tiberiu",
+      "@tiberiu.ungurianu",
+      "71885",
+    ],
+    jobTitle: ["Creator", "Model"],
+    homeLocation: "London, United Kingdom",
+  },
+} as const;
