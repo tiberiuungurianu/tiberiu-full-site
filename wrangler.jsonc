@@ -1,6 +1,7 @@
 {
   "name": "tiberiu-full-site",
   "compatibility_date": "2026-10-11",
+  "pages_build_output_dir": ".",
   "observability": {
     "logs": {
       "enabled": true,

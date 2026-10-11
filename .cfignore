@@ -1,0 +1,13 @@
+node_modules
+.next
+.git
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+.wrangler
+.env
+.env.*
+docs
+README.md
+.git
