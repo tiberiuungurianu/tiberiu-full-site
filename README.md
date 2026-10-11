@@ -53,3 +53,5 @@ No build step is required. Upload the folder directly to:
 - Any standard static web host
 
 For a custom domain, point the domain at whichever host you choose.
+
+Production analytics (Cloudflare Web Analytics + PostHog EU, consent-gated) are documented in [`docs/analytics.md`](docs/analytics.md).
