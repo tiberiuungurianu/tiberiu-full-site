@@ -1,0 +1,13 @@
+{
+  "name": "tiberiu-full-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static personal site for tiberiu.online",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "deploy": "wrangler pages deploy . --project-name=tiberiu-full-site --commit-dirty=true"
+  },
+  "devDependencies": {
+    "wrangler": "^4.45.0"
+  }
+}
