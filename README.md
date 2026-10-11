@@ -51,9 +51,9 @@ Then deploy (`npm run deploy`) so production picks up the change.
 | Branch | Deploy command | Cloudflare Worker | URL |
 |---|---|---|---|
 | `main` / production work | `npm run deploy` | `tiberiu-full-site` | https://tiberiu.online |
-| `PPD-changes` (pre-prod) | `npm run deploy:ppd` | `tiberiu-full-site-ppd` | https://tiberiu-full-site-ppd.ungurianu43.workers.dev (+ optional `ppd.tiberiu.online`) |
+| `PPD-changes` (pre-prod) | `npm run deploy:ppd` | `tiberiu-full-site-ppd` | https://ppd.tiberiu.online |
 
-Pre-prod does **not** overwrite production. Attach a custom domain in the Worker dashboard (**+ Add Domain**) if you want `ppd.tiberiu.online`.
+Pre-prod does **not** overwrite production (`tiberiu.online`).
 
 ## Deploy
 

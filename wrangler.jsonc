@@ -15,6 +15,9 @@
     "ppd": {
       "name": "tiberiu-full-site-ppd",
       "workers_dev": true,
+      "routes": [
+        { "pattern": "ppd.tiberiu.online", "custom_domain": true }
+      ],
       "assets": {
         "directory": ".",
         "binding": "ASSETS",
