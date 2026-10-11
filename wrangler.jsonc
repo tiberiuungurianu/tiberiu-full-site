@@ -1,5 +1,14 @@
 {
+  // Production Worker that serves tiberiu.online
+  // (Dashboard: Workers entry with code-brackets icon — NOT the Pages *.pages.dev project.)
   "name": "tiberiu-full-site",
+  "main": "worker.js",
   "compatibility_date": "2026-10-11",
-  "pages_build_output_dir": "."
+  "workers_dev": true,
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
 }

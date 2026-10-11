@@ -1,6 +1,8 @@
 # Advanced analytics — tiberiu.online (production)
 
-This documents analytics for the **current static production site** on Cloudflare Pages. It is independent of the `live2.0` / editorial redesign.
+This documents analytics for the **current static production site**. It is independent of the `live2.0` / editorial redesign.
+
+**Deploy target:** production is the Cloudflare **Worker** named `tiberiu-full-site` (serves `tiberiu.online`). There may also be a separate **Pages** project with the same name (`*.pages.dev`) — that is only a preview. Use `npm run deploy` (`wrangler deploy`) for production.
 
 ## What is installed
 
