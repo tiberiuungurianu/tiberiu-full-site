@@ -5,7 +5,7 @@
   "description": "Static personal site for tiberiu.online",
   "scripts": {
     "start": "python3 -m http.server 8000",
-    "deploy": "wrangler deploy",
+    "deploy": "wrangler deploy --env=\"\"",
     "deploy:ppd": "wrangler deploy --env ppd",
     "deploy:pages-preview": "wrangler pages deploy . --project-name=tiberiu-full-site --commit-dirty=true"
   },
