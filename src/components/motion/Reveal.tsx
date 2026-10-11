@@ -21,7 +21,7 @@ export function Reveal({ children, className, delay = 0, y = 18 }: RevealProps) 
       className={cx(className)}
       initial={reduceMotion ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.12, margin: "0px 0px -4% 0px" }}
+      viewport={{ once: true, amount: 0.18, margin: "0px 0px -6% 0px" }}
       transition={{
         duration: durationFor(reduceMotion, motionDuration.reveal),
         delay: reduceMotion ? 0 : delay,

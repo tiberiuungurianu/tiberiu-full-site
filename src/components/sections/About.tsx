@@ -3,92 +3,85 @@ import { site } from "@/content/site";
 import { Reveal } from "@/components/motion/Reveal";
 
 export function About() {
-  const { about, code, city, personName } = site;
-  const [lead, ...rest] = about.paragraphs;
+  const { about, code, city } = site;
 
   return (
     <section
       id="about"
       data-theme="light"
       aria-label="Profile"
-      className="relative overflow-hidden bg-[var(--newsprint)] text-[var(--text-on-light)]"
+      className="bg-[var(--ivory)] text-[var(--text-on-light)]"
     >
-      {/* Running magazine folio */}
-      <div className="shell pt-[calc(var(--header-h)+10px)]">
-        <div className="flex items-center justify-between gap-4 border-b border-[var(--line-on-light)] pb-3">
-          <p className="kicker !text-[var(--smoke-on-light)]">02 — Profile</p>
-          <p className="kicker !text-[var(--smoke-on-light)]">
-            {personName}
-          </p>
-          <p className="kicker !text-[var(--smoke-on-light)] max-sm:hidden">
+      <div className="shell section-pad">
+        <div className="mb-10 flex items-center justify-between gap-4 text-[11px] uppercase tracking-[0.18em] text-[var(--muted-on-light)]">
+          <span>02 / Profile</span>
+          <span>
             {code} / {city}
-          </p>
+          </span>
         </div>
-      </div>
 
-      <div className="relative section-pad pt-10 md:pt-14">
-        <div className="grid items-start gap-0 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
-          {/* Bleeding portrait column */}
-          <Reveal className="relative lg:sticky lg:top-[calc(var(--header-h)+16px)]">
-            <figure className="m-0">
-              <div className="relative -ml-[var(--pad)] w-[calc(100%+var(--pad))] overflow-hidden bg-[var(--newsprint-warm)] sm:w-[calc(100%+var(--pad)+4vw)] lg:-ml-[max(var(--pad),calc((100vw-var(--max))/2+var(--pad)))] lg:w-[calc(100%+max(var(--pad),calc((100vw-var(--max))/2+var(--pad))))]">
-                <Image
-                  src={about.portrait.src}
-                  alt={about.portrait.alt}
-                  width={about.portrait.width}
-                  height={about.portrait.height}
-                  sizes="(max-width: 1024px) 92vw, 48vw"
-                  className="aspect-[4/5] h-auto w-full object-cover object-[50%_18%] sm:aspect-[3/4]"
-                  priority
-                />
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute bottom-4 left-4 font-[family-name:var(--font-display)] text-[clamp(72px,14vw,160px)] font-black leading-none tracking-[-0.04em] text-[var(--paper)]/25 mix-blend-difference sm:bottom-6 sm:left-6"
-                >
-                  20
-                </div>
-              </div>
-              <figcaption className="mt-3 flex items-baseline justify-between gap-4 px-[var(--pad)] lg:px-0 lg:pl-[max(0px,calc((100vw-var(--max))/2+var(--pad)-0px))]">
-                <span className="kicker !text-[var(--smoke-on-light)]">Portrait study</span>
-                <span className="kicker !text-[var(--smoke-on-light)]">London</span>
-              </figcaption>
-            </figure>
-          </Reveal>
-
-          {/* Editorial text column */}
-          <div className="shell mt-12 lg:mt-0 lg:pl-10 xl:pl-16">
+        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:gap-16">
+          <div>
             <Reveal>
-              <p className="kicker mb-5 !text-[var(--oxblood)]">{about.eyebrow}</p>
-              <h2 className="visually-hidden">{about.title}</h2>
-              <p className="pull-quote max-w-[14ch] text-[var(--ink)]">{lead}</p>
+              <p className="eyebrow !text-[var(--muted-on-light)]">{about.eyebrow}</p>
+              <h2 className="display-title max-w-[8ch] !text-[var(--text-on-light)]">
+                {about.title}
+              </h2>
             </Reveal>
 
-            <div className="mt-10 grid gap-6 border-l-2 border-[var(--oxblood)] pl-5 md:mt-12 md:pl-7">
-              {rest.map((paragraph, index) => (
+            <div className="mt-8 grid gap-6 md:mt-10">
+              {about.paragraphs.map((paragraph, index) => (
                 <Reveal key={paragraph} delay={0.08 + index * 0.06}>
-                  <p className="editorial-copy max-w-[32ch] text-[var(--ink)]/85">{paragraph}</p>
+                  <p
+                    className={`editorial-copy m-0 max-w-[34ch] text-[var(--text-on-light)] ${
+                      index === 1 ? "text-[rgba(17,17,17,0.72)]" : ""
+                    }`}
+                  >
+                    {paragraph}
+                  </p>
                 </Reveal>
               ))}
             </div>
 
-            <Reveal delay={0.18} className="mt-14 grid grid-cols-2 gap-x-6 gap-y-8">
+            <Reveal delay={0.2} className="mt-12 grid gap-6 border-t border-[var(--line-on-light)] pt-7 sm:grid-cols-2">
               {about.notes.map((note) => (
-                <div key={note.label} className="relative">
-                  <p className="kicker mb-2 !text-[var(--smoke-on-light)]">{note.label}</p>
-                  <p className="m-0 font-[family-name:var(--font-display)] text-[clamp(48px,8vw,88px)] font-black leading-[0.85] tracking-[-0.04em] text-[var(--ink)]">
+                <div key={note.label}>
+                  <p className="m-0 text-[11px] uppercase tracking-[0.16em] text-[var(--muted-on-light)]">
+                    {note.label}
+                  </p>
+                  <p className="mt-2 font-[family-name:var(--font-display)] text-[clamp(32px,4.5vw,48px)] font-semibold tracking-[-0.03em]">
                     {note.value}
                   </p>
                 </div>
               ))}
             </Reveal>
 
-            <Reveal delay={0.24} className="mt-12 max-w-[34ch]">
-              <p className="kicker mb-2 !text-[var(--smoke-on-light)]">{about.agency.label}</p>
-              <p className="m-0 font-[family-name:var(--font-editorial)] text-[clamp(17px,1.8vw,21px)] italic leading-[1.35] text-[var(--ink)]">
-                {about.agency.value}
+            <Reveal delay={0.28} className="mt-8 max-w-[30ch]">
+              <p className="m-0 text-[11px] uppercase tracking-[0.16em] text-[var(--muted-on-light)]">
+                {about.agency.label}
               </p>
+              <p className="mt-2 text-[15px] leading-[1.45]">{about.agency.value}</p>
             </Reveal>
           </div>
+
+          <Reveal delay={0.12} className="relative lg:sticky lg:top-[calc(var(--header-h)+24px)]">
+            <figure className="m-0">
+              <div className="overflow-hidden bg-[rgba(17,17,17,0.04)]">
+                <Image
+                  src={about.portrait.src}
+                  alt={about.portrait.alt}
+                  width={about.portrait.width}
+                  height={about.portrait.height}
+                  sizes="(max-width: 900px) 86vw, 34vw"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+              <figcaption className="mt-3 flex items-baseline justify-between gap-4 text-[11px] uppercase tracking-[0.16em] text-[var(--muted-on-light)]">
+                <span>Portrait</span>
+                <span>London</span>
+              </figcaption>
+            </figure>
+          </Reveal>
         </div>
       </div>
     </section>

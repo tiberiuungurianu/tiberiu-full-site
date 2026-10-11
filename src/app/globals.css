@@ -2,12 +2,6 @@
 @import "../styles/tokens.css";
 
 @theme inline {
-  --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
-  --color-newsprint: var(--newsprint);
-  --color-paper: var(--paper);
-  --color-oxblood: var(--oxblood);
-  --color-smoke: var(--smoke);
   --color-bg: var(--bg);
   --color-bg-secondary: var(--bg-secondary);
   --color-ivory: var(--ivory);
@@ -34,7 +28,7 @@ html {
 body {
   margin: 0;
   min-height: 100%;
-  background: var(--ink);
+  background: var(--bg);
   color: var(--text);
   font-family: var(--font-utility), "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-synthesis: none;
@@ -63,8 +57,8 @@ button {
 }
 
 ::selection {
-  background: var(--oxblood);
-  color: var(--paper);
+  background: color-mix(in srgb, var(--burgundy) 70%, black);
+  color: var(--ivory);
 }
 
 .skip-link {
@@ -73,11 +67,10 @@ button {
   top: -100px;
   z-index: 1000;
   padding: 10px 14px;
-  background: var(--paper);
+  background: var(--ivory);
   color: var(--text-on-light);
-  font-family: var(--font-mono), monospace;
-  font-size: 12px;
-  letter-spacing: 0.08em;
+  font-size: 13px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -104,103 +97,90 @@ button {
 }
 
 .section-pad {
-  padding-block: clamp(56px, 10vw, 120px);
+  padding-block: clamp(72px, 12vw, 160px);
 }
 
-.kicker {
-  margin: 0;
-  font-family: var(--font-mono), ui-monospace, monospace;
+.eyebrow {
+  margin: 0 0 16px;
   font-size: 11px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--smoke);
-}
-
-.masthead {
-  margin: 0;
-  font-family: var(--font-display), Impact, "Arial Narrow", sans-serif;
-  font-weight: 400;
-  line-height: 0.78;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .display-title {
   margin: 0;
-  font-family: var(--font-display), Impact, "Arial Narrow", sans-serif;
-  font-weight: 400;
-  font-size: clamp(56px, 12vw, 148px);
-  line-height: 0.82;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: clamp(48px, 10vw, 120px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
 }
 
 .editorial-copy {
   margin: 0;
   font-family: var(--font-editorial), Georgia, "Times New Roman", serif;
-  font-size: clamp(18px, 2.1vw, 24px);
-  line-height: 1.4;
-  letter-spacing: -0.015em;
+  font-size: clamp(18px, 2.2vw, 26px);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
 }
 
-.pull-quote {
-  margin: 0;
-  font-family: var(--font-editorial), Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(28px, 5.2vw, 64px);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+.phase-note {
+  margin: 24px 0 0;
+  max-width: 42ch;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-/* Topbar contrast across ink / newsprint spreads */
+/* Topbar contrast: keep brand + menu readable on ivory sections */
 header[data-on-light="false"] .topbar-brand,
 header[data-on-light="false"] .topbar-menu,
 header[data-on-light="false"] .topbar-nav {
-  color: var(--paper);
+  color: #f2efe9;
 }
 
 header[data-on-light="false"] .topbar-nav {
-  color: rgba(242, 235, 224, 0.78);
+  color: rgba(242, 239, 233, 0.84);
 }
 
 header[data-on-light="true"] .topbar-brand,
 header[data-on-light="true"] .topbar-menu,
 header[data-on-light="true"] .topbar-nav,
 header[data-on-light="true"] .topbar-nav a {
-  color: var(--ink);
+  color: #111111;
 }
 
 header[data-on-light="true"] .topbar-nav a:hover,
 header[data-on-light="true"] .topbar-brand:hover,
 header[data-on-light="true"] .topbar-menu:hover {
-  color: var(--oxblood);
+  color: #000000;
 }
 
 .scroll-cue {
-  animation: scroll-cue 2.6s var(--ease-editorial) infinite;
+  animation: scroll-cue 2.4s var(--ease-editorial) infinite;
 }
 
 @keyframes scroll-cue {
   0%,
   100% {
-    opacity: 0.5;
+    opacity: 0.55;
     transform: translateY(0);
   }
   50% {
     opacity: 1;
-    transform: translateY(5px);
+    transform: translateY(4px);
   }
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .type-nudge {
-    transition: transform var(--duration-hover) var(--ease-editorial), color var(--duration-hover) ease;
+  .interactive-shift {
+    transition: transform 0.28s var(--ease-editorial), opacity 0.28s ease;
   }
 
-  .type-nudge:hover {
-    transform: translateX(10px);
-    color: var(--oxblood);
+  .interactive-shift:hover {
+    transform: translateX(8px);
   }
 }
 
@@ -209,8 +189,8 @@ header[data-on-light="true"] .topbar-menu:hover {
     animation: none;
   }
 
-  .type-nudge,
-  .type-nudge:hover {
+  .interactive-shift,
+  .interactive-shift:hover {
     transition: none;
     transform: none;
   }

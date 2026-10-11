@@ -17,8 +17,9 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], reduceMotion ? ["0%", "0%"] : ["0%", "12%"]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], reduceMotion ? [1, 1] : [1.06, 1.14]);
+  const imageY = useTransform(scrollYProgress, [0, 1], reduceMotion ? ["0%", "0%"] : ["0%", "8%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], reduceMotion ? [1, 1] : [1.02, 1.08]);
+  const veilOpacity = useTransform(scrollYProgress, [0, 0.9], [1, 0.45]);
 
   const entrance = {
     duration: durationFor(reduceMotion, motionDuration.hero),
@@ -31,61 +32,68 @@ export function Hero() {
       id="home"
       data-theme="dark"
       aria-label="Cover"
-      className="relative min-h-[100svh] overflow-hidden bg-[var(--ink)]"
+      className="relative flex min-h-[100svh] items-end overflow-hidden bg-[var(--bg)]"
     >
-      {/* Full-bleed photographic plane */}
-      <div className="absolute inset-0" aria-hidden="true">
-        <motion.div className="absolute inset-0 will-change-transform" style={{ y: imageY, scale: imageScale }}>
-          <Image
-            src={hero.image.src}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[62%_22%] sm:object-[58%_28%]"
-          />
-        </motion.div>
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,11,10,0.55)_0%,rgba(12,11,10,0.08)_28%,rgba(12,11,10,0.2)_55%,rgba(12,11,10,0.88)_100%)]" />
-        <div className="absolute inset-y-0 left-0 w-[min(28vw,220px)] bg-[linear-gradient(90deg,rgba(12,11,10,0.55),transparent)] max-sm:hidden" />
-      </div>
-
-      <div className="shell relative z-10 flex min-h-[100svh] flex-col justify-end pb-[max(24px,env(safe-area-inset-bottom))] pt-[calc(var(--header-h)+12px)]">
-        <div className="relative pb-2">
-          <motion.p
-            className="mb-3 max-w-[16ch] font-[family-name:var(--font-editorial)] text-[clamp(20px,2.4vw,30px)] italic leading-[1.15] text-[var(--paper)]"
-            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...entrance, delay: reduceMotion ? 0 : 0.2 }}
-          >
-            {hero.line}
-          </motion.p>
-
-          <motion.h1
-            className="masthead text-[clamp(96px,24vw,300px)] text-[var(--paper)]"
-            initial={reduceMotion ? false : { opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...entrance, delay: reduceMotion ? 0 : 0.06 }}
-          >
-            {hero.masthead}
-          </motion.h1>
-
-          <motion.div
-            className="mt-4 flex flex-wrap items-end justify-between gap-4 border-t border-[var(--line)] pt-4 md:mt-5"
-            initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...entrance, delay: reduceMotion ? 0 : 0.3 }}
-          >
-            <a
-              href="#about"
-              className="kicker scroll-cue text-[var(--paper)]/80 transition-colors hover:text-[var(--paper)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--paper)]"
-            >
-              {hero.scrollNote} ↓
-            </a>
-            <p className="kicker m-0 text-[var(--paper)]/65">
-              {hero.chapter} / {hero.meta}
-            </p>
+      <motion.div className="absolute inset-0" aria-hidden="true" style={{ opacity: veilOpacity }}>
+        <motion.div
+          className="absolute inset-0 overflow-hidden will-change-transform"
+          initial={
+            reduceMotion
+              ? false
+              : { clipPath: "inset(10% 7% 16% 7%)", opacity: 0.75 }
+          }
+          animate={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
+          transition={entrance}
+        >
+          <motion.div className="absolute inset-0 will-change-transform" style={{ y: imageY, scale: imageScale }}>
+            <Image
+              src={hero.image.src}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[58%_28%] sm:object-[58%_36%]"
+            />
           </motion.div>
-        </div>
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/35" />
+      </motion.div>
+
+      <div className="shell relative z-10 w-full pb-[max(28px,env(safe-area-inset-bottom))] pt-[calc(var(--header-h)+24px)]">
+        <motion.div
+          className="mb-6 flex items-center justify-between gap-4 text-[11px] uppercase tracking-[0.18em] text-[var(--muted)]"
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...entrance, delay: reduceMotion ? 0 : 0.26 }}
+        >
+          <span>{hero.meta}</span>
+          <span>
+            {hero.chapter} / {hero.issue}
+          </span>
+        </motion.div>
+
+        <motion.h1
+          className="m-0 font-[family-name:var(--font-display)] text-[clamp(64px,16vw,220px)] font-bold leading-[0.82] tracking-[-0.055em] uppercase"
+          initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...entrance, delay: reduceMotion ? 0 : 0.16 }}
+        >
+          {hero.masthead}
+        </motion.h1>
+
+        <motion.div
+          className="mt-5 flex flex-wrap items-end justify-between gap-4"
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...entrance, delay: reduceMotion ? 0 : 0.4 }}
+        >
+          <p className="m-0 max-w-[20em] font-[family-name:var(--font-editorial)] text-[clamp(18px,2.4vw,28px)] italic leading-[1.2] text-[var(--ivory)]">
+            {hero.line}
+          </p>
+          <p className="scroll-cue m-0 text-[11px] uppercase tracking-[0.18em] text-[var(--muted)]">
+            {hero.scrollNote} ↓
+          </p>
+        </motion.div>
 
         <p className="visually-hidden">{site.personName} — official website</p>
       </div>

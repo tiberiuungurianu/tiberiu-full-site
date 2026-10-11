@@ -3,7 +3,7 @@ export const site = {
   personName: "Tiberiu Ungurianu",
   url: "https://www.tiberiu.online/",
   locale: "en_GB",
-  themeColor: "#0c0b0a",
+  themeColor: "#111111",
   code: "71885",
   city: "London",
   title: "Tiberiu Ungurianu — TIBERIU",

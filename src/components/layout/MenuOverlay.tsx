@@ -74,14 +74,14 @@ export function MenuOverlay({ open, onClose, menuButtonRef }: MenuOverlayProps) 
   }, [open, onClose, menuButtonRef]);
 
   const duration = durationFor(reduceMotion, motionDuration.menu);
-  const stagger = reduceMotion ? 0 : 0.04;
+  const stagger = reduceMotion ? 0 : 0.035;
 
   return (
     <AnimatePresence>
       {open ? (
         <motion.div
           ref={dialogRef}
-          className="fixed inset-0 z-[80] flex flex-col bg-[var(--ink)] text-[var(--paper)]"
+          className="fixed inset-0 z-[80] flex flex-col bg-[rgba(10,10,10,0.97)] text-[var(--ivory)]"
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
@@ -91,56 +91,55 @@ export function MenuOverlay({ open, onClose, menuButtonRef }: MenuOverlayProps) 
           transition={{ duration, ease: easeEditorial }}
         >
           <div className="shell flex h-[var(--header-h)] items-center justify-between pt-[env(safe-area-inset-top)]">
-            <p
-              id={titleId}
-              className="m-0 font-[family-name:var(--font-display)] text-[clamp(20px,1.6vw,28px)] font-black uppercase tracking-[-0.03em]"
-            >
+            <p id={titleId} className="m-0 font-[family-name:var(--font-display)] text-[clamp(18px,1.4vw,24px)] font-semibold uppercase tracking-[-0.03em]">
               {site.name}
             </p>
             <button
               type="button"
               onClick={onClose}
-              className="min-h-11 px-1 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.2em] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--paper)]"
+              className="min-h-11 px-1 text-[clamp(13px,1vw,16px)] uppercase tracking-[0.16em] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--ivory)]"
             >
               Close
             </button>
           </div>
 
-          <div className="shell flex flex-1 flex-col justify-center gap-12 overflow-y-auto py-8 pb-[max(32px,env(safe-area-inset-bottom))]">
+          <div className="shell flex flex-1 flex-col justify-center gap-10 overflow-y-auto py-8 pb-[max(32px,env(safe-area-inset-bottom))]">
             <nav aria-label="Sections">
-              <ul className="m-0 grid list-none gap-1 p-0">
+              <ul className="m-0 grid list-none gap-0 border-t border-[var(--line)] p-0">
                 {site.nav.map((item, index) => (
-                  <li key={item.href}>
+                  <li key={item.href} className="border-b border-[var(--line)]">
                     <motion.a
                       href={item.href}
                       onClick={onClose}
-                      className="group flex items-baseline justify-between gap-4 py-1 transition-colors duration-300 hover:text-[var(--oxblood-bright)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--paper)]"
-                      initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+                      className="flex items-baseline justify-between gap-4 py-[clamp(14px,2.4vw,22px)] transition-opacity duration-300 hover:opacity-70 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--ivory)]"
+                      initial={reduceMotion ? false : { opacity: 0, y: 16 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{
-                        duration: durationFor(reduceMotion, 0.4),
-                        delay: reduceMotion ? 0 : 0.05 + index * stagger,
+                        duration: durationFor(reduceMotion, 0.38),
+                        delay: reduceMotion ? 0 : 0.06 + index * stagger,
                         ease: easeEditorial,
                       }}
                     >
-                      <span className="font-[family-name:var(--font-display)] text-[clamp(52px,11vw,120px)] font-black leading-[0.84] tracking-[-0.035em] uppercase">
+                      <span className="font-[family-name:var(--font-display)] text-[clamp(40px,9vw,88px)] font-semibold leading-[0.92] tracking-[-0.045em] uppercase">
                         {item.label}
                       </span>
-                      <span className="kicker text-[var(--smoke)]">{item.number}</span>
+                      <span className="text-[11px] uppercase tracking-[0.16em] text-[var(--muted)]">
+                        {item.number}
+                      </span>
                     </motion.a>
                   </li>
                 ))}
               </ul>
             </nav>
 
-            <div className="grid gap-4 border-t border-[var(--line)] pt-6 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-10">
-              <p className="kicker text-[var(--smoke)]">Online</p>
-              <ul className="m-0 flex list-none flex-wrap gap-x-5 gap-y-3 p-0">
+            <div>
+              <p className="mb-4 text-[11px] uppercase tracking-[0.18em] text-[var(--muted)]">Online</p>
+              <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2">
                 <li>
                   <a
                     href={linksContent.email.href}
                     onClick={onClose}
-                    className="font-[family-name:var(--font-mono)] text-[12px] uppercase tracking-[0.14em] text-[var(--oxblood-bright)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--paper)]"
+                    className="text-[14px] uppercase tracking-[0.12em] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--ivory)]"
                   >
                     Contact me
                   </a>
@@ -152,16 +151,21 @@ export function MenuOverlay({ open, onClose, menuButtonRef }: MenuOverlayProps) 
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={onClose}
-                      className="font-[family-name:var(--font-mono)] text-[12px] uppercase tracking-[0.12em] text-[var(--paper)]/80 hover:text-[var(--paper)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--paper)]"
+                      className="text-[14px] uppercase tracking-[0.12em] text-[var(--ivory)]/85 hover:text-[var(--ivory)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--ivory)]"
                     >
                       {link.label}
+                      {link.detail ? (
+                        <span className="ml-3 text-[11px] text-[var(--muted)] normal-case tracking-[0.08em]">
+                          {link.detail}
+                        </span>
+                      ) : null}
                     </a>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <p className="kicker m-0 text-[var(--smoke)]">
+            <p className="m-0 text-[11px] uppercase tracking-[0.16em] text-[var(--muted)]">
               {site.code} / {site.city}
             </p>
           </div>

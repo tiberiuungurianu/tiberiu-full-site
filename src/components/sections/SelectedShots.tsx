@@ -6,24 +6,20 @@ export function SelectedShots() {
   const { selected } = site;
 
   return (
-    <section id="selected" data-theme="dark" aria-label="Editorial" className="bg-[var(--ink)]">
-      <div className="shell pt-[calc(var(--header-h)+10px)]">
-        <div className="flex items-center justify-between gap-4 border-b border-[var(--line)] pb-3">
-          <p className="kicker">03 — Editorial</p>
-          <p className="kicker">{selected.locale}</p>
+    <section id="selected" data-theme="dark" aria-label="Editorial" className="bg-[var(--bg)]">
+      <div className="shell section-pad">
+        <div className="mb-8 flex items-center justify-between gap-4 text-[11px] uppercase tracking-[0.18em] text-[var(--muted)]">
+          <span>03 / Editorial</span>
+          <span>{selected.locale}</span>
         </div>
-      </div>
 
-      <div className="shell section-pad pt-12 md:pt-16">
-        <header className="relative mb-16 md:mb-24">
+        <header className="mb-12 grid gap-6 md:mb-16 md:grid-cols-[1.1fr_0.7fr] md:items-end">
           <Reveal>
-            <p className="kicker mb-4 text-[var(--oxblood-bright)]">{selected.eyebrow}</p>
-            <h2 className="display-title whitespace-pre-line max-w-[9ch] text-[var(--paper)]">
-              {selected.title}
-            </h2>
+            <p className="eyebrow">{selected.eyebrow}</p>
+            <h2 className="display-title whitespace-pre-line">{selected.title}</h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-6 max-w-[22ch] font-[family-name:var(--font-editorial)] text-[clamp(20px,2.6vw,30px)] italic leading-[1.2] text-[var(--paper)]/80 md:absolute md:right-0 md:top-8 md:mt-0 md:text-right">
+            <p className="m-0 max-w-[28ch] justify-self-start text-[15px] leading-[1.55] text-[var(--muted)] md:justify-self-end md:text-right">
               {selected.intro}
             </p>
           </Reveal>
@@ -31,11 +27,9 @@ export function SelectedShots() {
 
         <GalleryGrid />
 
-        <Reveal delay={0.08} className="mt-20 flex flex-wrap items-end justify-between gap-4 border-t border-[var(--line)] pt-5">
-          <p className="m-0 max-w-[36ch] font-[family-name:var(--font-editorial)] text-[clamp(16px,1.6vw,20px)] italic leading-[1.4] text-[var(--smoke)]">
-            {selected.meta}
-          </p>
-          <p className="kicker m-0">{selected.locale}</p>
+        <Reveal delay={0.08} className="mt-14 flex flex-wrap items-end justify-between gap-4 border-t border-[var(--line)] pt-5 text-[13px] text-[var(--muted)]">
+          <p className="m-0 max-w-[36ch] leading-[1.5]">{selected.meta}</p>
+          <p className="m-0 uppercase tracking-[0.14em]">{selected.locale}</p>
         </Reveal>
       </div>
     </section>

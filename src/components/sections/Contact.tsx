@@ -7,37 +7,23 @@ export function Contact() {
   const year = new Date().getFullYear();
 
   return (
-    <section
-      id="contact"
-      data-theme="dark"
-      aria-label="Contact"
-      className="relative overflow-hidden bg-[var(--oxblood-deep)] text-[var(--paper)]"
-    >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-[8%] top-[12%] font-[family-name:var(--font-display)] text-[clamp(160px,38vw,420px)] font-black leading-none tracking-[-0.05em] text-[var(--paper)]/[0.06] select-none"
-      >
-        @
-      </div>
-
-      <div className="shell pt-[calc(var(--header-h)+10px)]">
-        <div className="flex items-center justify-between gap-4 border-b border-[rgba(242,235,224,0.2)] pb-3">
-          <p className="kicker text-[var(--paper)]/70">05 — Contact</p>
-          <p className="kicker text-[var(--paper)]/70">Closing page</p>
-        </div>
-      </div>
-
-      <div className="shell flex min-h-[88svh] flex-col justify-between pb-[clamp(48px,8vw,96px)] pt-10 md:pt-14">
+    <section id="contact" data-theme="dark" aria-label="Contact" className="bg-[var(--bg)]">
+      <div className="shell section-pad min-h-[85svh] flex flex-col justify-between">
         <div>
+          <div className="mb-8 flex items-center justify-between gap-4 text-[11px] uppercase tracking-[0.18em] text-[var(--muted)]">
+            <span>05 / Contact</span>
+            <span>Closing page</span>
+          </div>
+
           <Reveal>
-            <p className="kicker mb-5 text-[var(--paper)]/65">{contact.eyebrow}</p>
-            <h2 className="display-title whitespace-pre-line max-w-[9ch] text-[var(--paper)]">
+            <p className="eyebrow">{contact.eyebrow}</p>
+            <h2 className="display-title whitespace-pre-line max-w-[10ch]">
               {contact.title}
             </h2>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <p className="mt-8 max-w-[28ch] font-[family-name:var(--font-editorial)] text-[clamp(18px,2.2vw,26px)] italic leading-[1.3] text-[var(--paper)]/80">
+            <p className="mt-7 max-w-[34ch] text-[clamp(16px,1.8vw,19px)] leading-[1.55] text-[var(--muted)]">
               {contact.copy}
             </p>
           </Reveal>
@@ -45,24 +31,24 @@ export function Contact() {
           <Reveal delay={0.16}>
             <a
               href={linksContent.email.href}
-              className="mt-12 inline-block max-w-full break-all font-[family-name:var(--font-display)] text-[clamp(36px,8vw,96px)] font-black leading-[0.9] tracking-[-0.035em] uppercase text-[var(--paper)] underline decoration-[var(--paper)]/35 decoration-2 underline-offset-[0.18em] transition-colors duration-300 hover:decoration-[var(--paper)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-6 focus-visible:outline-[var(--paper)]"
+              className="mt-10 inline-block max-w-full break-all font-[family-name:var(--font-display)] text-[clamp(40px,9vw,120px)] font-semibold leading-[0.92] tracking-[-0.05em] border-b border-[var(--line)] pb-2 transition-opacity duration-300 hover:opacity-70 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-6 focus-visible:outline-[var(--ivory)]"
             >
               {linksContent.email.label}
             </a>
           </Reveal>
         </div>
 
-        <Reveal delay={0.08} className="mt-24">
-          <footer className="grid gap-6 border-t border-[rgba(242,235,224,0.2)] pt-6 md:grid-cols-[1fr_1.4fr_auto] md:items-end">
-            <div className="flex flex-wrap gap-x-5 gap-y-2">
-              <span className="kicker text-[var(--paper)]/70">{name}</span>
-              <span className="kicker text-[var(--paper)]/70">{city}</span>
-              <span className="kicker text-[var(--paper)]/70">{code}</span>
+        <Reveal delay={0.08} className="mt-20">
+          <footer className="grid gap-5 border-t border-[var(--line)] pt-6 text-[12px] uppercase tracking-[0.14em] text-[var(--muted)] md:grid-cols-[1fr_1.2fr_auto] md:items-end">
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              <span>{name}</span>
+              <span>{city}</span>
+              <span>{code}</span>
             </div>
-            <p className="m-0 max-w-[40ch] font-[family-name:var(--font-editorial)] text-[clamp(15px,1.5vw,19px)] italic leading-[1.45] text-[var(--paper)]/75">
+            <p className="m-0 max-w-[38ch] normal-case tracking-normal leading-[1.5] font-[family-name:var(--font-editorial)] italic text-[clamp(15px,1.5vw,18px)] text-[rgba(242,239,233,0.78)]">
               {contact.note}
             </p>
-            <span className="kicker text-[var(--paper)]/70">© {year}</span>
+            <span>© {year}</span>
           </footer>
         </Reveal>
       </div>

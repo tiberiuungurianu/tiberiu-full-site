@@ -1,13 +1,16 @@
-# TIBERIU — PPD-changes (pre-prod)
+# TIBERIU 2.0
 
-Next.js editorial remake imported from [`live-2.1-remake`](https://github.com/tiberiuungurianu/live-2.1-remake), deployed to **pre-prod only**.
+Personal editorial website for Tiberiu Ungurianu.
 
-| | |
-|---|---|
-| Branch | `PPD-changes` |
-| Cloudflare Worker | `tiberiu-full-site-ppd` |
-| URL | https://ppd.tiberiu.online |
-| Production (`tiberiu.online`) | stays on the static Worker `tiberiu-full-site` — do not deploy this branch there |
+Development happens on `live2.0`. Production remains on `main`.
+
+## Stack
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- Motion for React (installed; used from Phase 2)
+- Vercel
 
 ## Local
 
@@ -18,20 +21,20 @@ npm run dev
 
 Open http://localhost:3000
 
-## Deploy pre-prod
-
-```bash
-npm run deploy:ppd
-```
-
-Builds with OpenNext for Cloudflare, then deploys to `tiberiu-full-site-ppd`.
-
 ## Content
 
+Editable typed content lives in:
+
 - `src/content/site.ts`
-- `src/content/links.ts` — use `"visible": false` to hide links
+- `src/content/links.ts`
 - `src/content/gallery.ts`
+
+## Safety
+
+- Do not merge into `main` without explicit approval
+- Keep the Vercel production branch on `main`
+- Preview deployments only for `live2.0`
 
 ## Legacy
 
-Previous static site snapshot: `_legacy/`
+The previous static redesign is archived in `_legacy/` for reference during migration.
