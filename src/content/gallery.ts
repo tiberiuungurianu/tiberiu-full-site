@@ -1,66 +1,65 @@
 export type GalleryItem = {
   id: string;
   src: string;
-  srcSet?: string;
   width: number;
   height: number;
   alt: string;
   caption: string;
   index: string;
   featured?: boolean;
+  objectPosition?: string;
 };
 
 export const gallery: GalleryItem[] = [
   {
     id: "beauty",
-    src: "/images/tiberiu-ungurianu-beauty-editorial.webp",
-    srcSet:
-      "/images/tiberiu-ungurianu-beauty-editorial-1200.webp 1200w, /images/tiberiu-ungurianu-beauty-editorial.webp 1237w",
-    width: 1237,
-    height: 1600,
+    src: "/images/tiberiu-ungurianu-beauty-editorial.JPG",
+    width: 1583,
+    height: 2048,
     alt: "Beauty editorial portrait of Tiberiu Ungurianu",
     caption: "Beauty",
     index: "01",
     featured: true,
+    objectPosition: "50% 18%",
   },
   {
     id: "roots",
-    src: "/images/tiberiu-ungurianu-back-to-roots.webp",
-    width: 1068,
-    height: 1600,
+    src: "/images/tiberiu-ungurianu-back-to-roots.JPG",
+    width: 2734,
+    height: 4096,
     alt: "Back to Roots editorial of Tiberiu",
-    caption: "Editorial",
+    caption: "Roots",
     index: "02",
+    objectPosition: "48% 30%",
   },
   {
     id: "fashion",
-    src: "/images/tiberiu-ungurianu-sunglasses-editorial-1200.webp",
-    width: 1200,
-    height: 1600,
+    src: "/images/tiberiu-ungurianu-sunglasses-editorial.JPG",
+    width: 3024,
+    height: 4032,
     alt: "Fashion editorial of Tiberiu in sunglasses",
-    caption: "Fashion",
+    caption: "Sunglasses",
     index: "03",
+    objectPosition: "55% 22%",
   },
   {
     id: "closeup",
-    src: "/images/tiberiu-ungurianu-editorial-closeup.webp",
-    srcSet:
-      "/images/tiberiu-ungurianu-editorial-closeup-1200.webp 1200w, /images/tiberiu-ungurianu-editorial-closeup.webp 1236w",
-    width: 1236,
-    height: 1600,
+    src: "/images/tiberiu-ungurianu-editorial-closeup.JPG",
+    width: 2550,
+    height: 3300,
     alt: "Editorial close-up of Tiberiu",
-    caption: "Close-up",
+    caption: "Close",
     index: "04",
+    objectPosition: "50% 12%",
   },
   {
     id: "campaign",
-    src: "/images/tiberiu-ungurianu-leather-editorial.webp",
-    srcSet:
-      "/images/tiberiu-ungurianu-leather-editorial-1200.webp 1200w, /images/tiberiu-ungurianu-leather-editorial.webp 1236w",
-    width: 1236,
-    height: 1600,
+    src: "/images/tiberiu-ungurianu-leather-editorial.JPG",
+    width: 2550,
+    height: 3300,
     alt: "Black and white leather campaign shot of Tiberiu",
-    caption: "Campaign",
+    caption: "Leather",
     index: "05",
+    objectPosition: "42% 28%",
   },
 ];

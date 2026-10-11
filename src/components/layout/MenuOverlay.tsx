@@ -81,7 +81,7 @@ export function MenuOverlay({ open, onClose, menuButtonRef }: MenuOverlayProps) 
       {open ? (
         <motion.div
           ref={dialogRef}
-          className="fixed inset-0 z-[80] flex flex-col bg-[rgba(10,10,10,0.97)] text-[var(--ivory)]"
+          className="surface-menu fixed inset-0 z-[80] flex flex-col text-[var(--text)]"
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
@@ -97,7 +97,7 @@ export function MenuOverlay({ open, onClose, menuButtonRef }: MenuOverlayProps) 
             <button
               type="button"
               onClick={onClose}
-              className="min-h-11 px-1 text-[clamp(13px,1vw,16px)] uppercase tracking-[0.16em] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--ivory)]"
+              className="min-h-11 px-1 text-[clamp(13px,1vw,16px)] uppercase tracking-[0.16em] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--text)]"
             >
               Close
             </button>
@@ -111,7 +111,7 @@ export function MenuOverlay({ open, onClose, menuButtonRef }: MenuOverlayProps) 
                     <motion.a
                       href={item.href}
                       onClick={onClose}
-                      className="flex items-baseline justify-between gap-4 py-[clamp(14px,2.4vw,22px)] transition-opacity duration-300 hover:opacity-70 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--ivory)]"
+                      className="flex items-baseline justify-between gap-4 py-[clamp(14px,2.4vw,22px)] transition-opacity duration-300 hover:opacity-70 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--text)]"
                       initial={reduceMotion ? false : { opacity: 0, y: 16 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{
@@ -120,7 +120,7 @@ export function MenuOverlay({ open, onClose, menuButtonRef }: MenuOverlayProps) 
                         ease: easeEditorial,
                       }}
                     >
-                      <span className="font-[family-name:var(--font-display)] text-[clamp(40px,9vw,88px)] font-semibold leading-[0.92] tracking-[-0.045em] uppercase">
+                      <span className="font-[family-name:var(--font-display)] text-[clamp(42px,9.5vw,92px)] font-bold leading-[0.86] tracking-[-0.055em] uppercase">
                         {item.label}
                       </span>
                       <span className="text-[11px] uppercase tracking-[0.16em] text-[var(--muted)]">
@@ -139,7 +139,7 @@ export function MenuOverlay({ open, onClose, menuButtonRef }: MenuOverlayProps) 
                   <a
                     href={linksContent.email.href}
                     onClick={onClose}
-                    className="text-[14px] uppercase tracking-[0.12em] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--ivory)]"
+                    className="text-[14px] uppercase tracking-[0.12em] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--text)]"
                   >
                     Contact me
                   </a>
@@ -151,7 +151,7 @@ export function MenuOverlay({ open, onClose, menuButtonRef }: MenuOverlayProps) 
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={onClose}
-                      className="text-[14px] uppercase tracking-[0.12em] text-[var(--ivory)]/85 hover:text-[var(--ivory)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--ivory)]"
+                      className="text-[14px] uppercase tracking-[0.12em] text-[var(--text)]/85 hover:text-[var(--text)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--text)]"
                     >
                       {link.label}
                       {link.detail ? (

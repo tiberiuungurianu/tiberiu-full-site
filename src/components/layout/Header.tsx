@@ -22,7 +22,7 @@ export function Header({ menuOpen, onMenuToggle, menuButtonRef, onLight = false 
         <a
           href="#home"
           className={cx(
-            "topbar-brand pointer-events-auto font-[family-name:var(--font-display)] text-[clamp(20px,1.6vw,30px)] font-semibold tracking-[-0.03em] uppercase transition-colors duration-300 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-current"
+            "topbar-brand pointer-events-auto font-[family-name:var(--font-display)] text-[clamp(20px,1.6vw,30px)] font-bold tracking-[-0.04em] uppercase transition-colors duration-300 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-current"
           )}
           aria-label="Tiberiu home"
           onClick={() => {
@@ -34,7 +34,7 @@ export function Header({ menuOpen, onMenuToggle, menuButtonRef, onLight = false 
 
         <div className="pointer-events-auto flex items-center gap-5 md:gap-8 xl:gap-10">
           <nav
-            className="topbar-nav hidden items-center gap-6 text-[clamp(14px,1.05vw,18px)] font-medium uppercase tracking-[0.14em] md:flex xl:gap-8"
+            className="topbar-nav hidden items-center gap-6 text-[clamp(14px,1.05vw,18px)] font-semibold uppercase tracking-[0.16em] md:flex xl:gap-8"
             aria-label="Primary"
           >
             {site.nav.slice(1, 4).map((item) => (

@@ -6,7 +6,8 @@ const nextConfig: NextConfig = {
     root: path.join(__dirname),
   },
   images: {
-    formats: ["image/avif", "image/webp"],
+    // Serve original JPG/PNG assets without converting to WebP/AVIF.
+    unoptimized: true,
   },
 };
 

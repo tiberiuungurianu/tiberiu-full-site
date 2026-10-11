@@ -121,7 +121,7 @@ export function GalleryLightbox({
       {open && item ? (
         <motion.div
           ref={dialogRef}
-          className="fixed inset-0 z-[100] flex flex-col bg-[rgba(8,8,8,0.96)] text-[var(--ivory)]"
+          className="surface-lightbox fixed inset-0 z-[100] flex flex-col text-[var(--text)]"
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
@@ -149,7 +149,7 @@ export function GalleryLightbox({
               ref={closeRef}
               type="button"
               onClick={onClose}
-              className="min-h-11 px-1 text-[13px] uppercase tracking-[0.16em] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--ivory)]"
+              className="min-h-11 px-1 text-[13px] uppercase tracking-[0.16em] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--text)]"
             >
               Close
             </button>
@@ -160,7 +160,7 @@ export function GalleryLightbox({
               type="button"
               aria-label="Previous image"
               onClick={() => go(-1)}
-              className="absolute left-[max(12px,env(safe-area-inset-left))] top-1/2 z-10 hidden min-h-12 min-w-12 -translate-y-1/2 items-center justify-center text-[28px] text-[var(--ivory)]/80 hover:text-[var(--ivory)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--ivory)] md:flex"
+              className="absolute left-[max(12px,env(safe-area-inset-left))] top-1/2 z-10 hidden min-h-12 min-w-12 -translate-y-1/2 items-center justify-center text-[28px] text-[var(--text)]/80 hover:text-[var(--text)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--text)] md:flex"
             >
               ←
             </button>
@@ -189,7 +189,7 @@ export function GalleryLightbox({
               type="button"
               aria-label="Next image"
               onClick={() => go(1)}
-              className="absolute right-[max(12px,env(safe-area-inset-right))] top-1/2 z-10 hidden min-h-12 min-w-12 -translate-y-1/2 items-center justify-center text-[28px] text-[var(--ivory)]/80 hover:text-[var(--ivory)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--ivory)] md:flex"
+              className="absolute right-[max(12px,env(safe-area-inset-right))] top-1/2 z-10 hidden min-h-12 min-w-12 -translate-y-1/2 items-center justify-center text-[28px] text-[var(--text)]/80 hover:text-[var(--text)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--text)] md:flex"
             >
               →
             </button>
@@ -199,7 +199,7 @@ export function GalleryLightbox({
             <button
               type="button"
               onClick={() => go(-1)}
-              className="min-h-11 px-1 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--ivory)]"
+              className="min-h-11 px-1 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--text)]"
             >
               Prev
             </button>
@@ -209,7 +209,7 @@ export function GalleryLightbox({
             <button
               type="button"
               onClick={() => go(1)}
-              className="min-h-11 px-1 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--ivory)]"
+              className="min-h-11 px-1 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--text)]"
             >
               Next
             </button>

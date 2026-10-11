@@ -17,9 +17,23 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], reduceMotion ? ["0%", "0%"] : ["0%", "8%"]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], reduceMotion ? [1, 1] : [1.02, 1.08]);
-  const veilOpacity = useTransform(scrollYProgress, [0, 0.9], [1, 0.45]);
+  const imageY = useTransform(scrollYProgress, [0, 1], reduceMotion ? ["0%", "0%"] : ["0%", "12%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], reduceMotion ? [1, 1] : [1.04, 1.12]);
+  const darkenOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.15, 0.45, 0.75, 1],
+    reduceMotion ? [0, 0, 0, 0, 0] : [0, 0.22, 0.55, 0.85, 1]
+  );
+  const contentOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.35, 0.7],
+    reduceMotion ? [1, 1, 1] : [1, 0.75, 0]
+  );
+  const mastheadX = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduceMotion ? ["0%", "0%"] : ["0%", "-4%"]
+  );
 
   const entrance = {
     duration: durationFor(reduceMotion, motionDuration.hero),
@@ -32,15 +46,13 @@ export function Hero() {
       id="home"
       data-theme="dark"
       aria-label="Cover"
-      className="relative flex min-h-[100svh] items-end overflow-hidden bg-[var(--bg)]"
+      className="relative flex min-h-[100svh] items-end overflow-hidden bg-[var(--black)]"
     >
-      <motion.div className="absolute inset-0" aria-hidden="true" style={{ opacity: veilOpacity }}>
+      <div className="absolute inset-0" aria-hidden="true">
         <motion.div
           className="absolute inset-0 overflow-hidden will-change-transform"
           initial={
-            reduceMotion
-              ? false
-              : { clipPath: "inset(10% 7% 16% 7%)", opacity: 0.75 }
+            reduceMotion ? false : { clipPath: "inset(12% 9% 18% 4%)", opacity: 0.7 }
           }
           animate={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
           transition={entrance}
@@ -52,51 +64,55 @@ export function Hero() {
               fill
               priority
               sizes="100vw"
-              className="object-cover object-[58%_28%] sm:object-[58%_36%]"
+              className="object-cover object-[62%_22%] sm:object-[58%_30%]"
             />
           </motion.div>
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/35" />
-      </motion.div>
-
-      <div className="shell relative z-10 w-full pb-[max(28px,env(safe-area-inset-bottom))] pt-[calc(var(--header-h)+24px)]">
+        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
         <motion.div
-          className="mb-6 flex items-center justify-between gap-4 text-[11px] uppercase tracking-[0.18em] text-[var(--muted)]"
+          className="pointer-events-none absolute inset-0 z-[2] bg-black"
+          style={{ opacity: darkenOpacity }}
+        />
+      </div>
+
+      <motion.div
+        className="shell relative z-10 w-full pb-[max(24px,env(safe-area-inset-bottom))] pt-[calc(var(--header-h)+16px)]"
+        style={{ opacity: contentOpacity }}
+      >
+        <motion.div
+          className="mb-5 flex flex-wrap items-center justify-between gap-3"
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ ...entrance, delay: reduceMotion ? 0 : 0.26 }}
+          transition={{ ...entrance, delay: reduceMotion ? 0 : 0.22 }}
         >
-          <span>{hero.meta}</span>
-          <span>
+          <span className="section-index">{hero.meta}</span>
+          <span className="stamp -rotate-2">{hero.stamp}</span>
+          <span className="section-index">
             {hero.chapter} / {hero.issue}
           </span>
         </motion.div>
 
         <motion.h1
-          className="m-0 font-[family-name:var(--font-display)] text-[clamp(64px,16vw,220px)] font-bold leading-[0.82] tracking-[-0.055em] uppercase"
-          initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+          className="m-0 max-w-[110%] font-[family-name:var(--font-display)] text-[clamp(72px,20vw,260px)] font-bold leading-[0.72] tracking-[-0.07em] uppercase md:-ml-1"
+          style={{ x: mastheadX }}
+          initial={reduceMotion ? false : { opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ ...entrance, delay: reduceMotion ? 0 : 0.16 }}
+          transition={{ ...entrance, delay: reduceMotion ? 0 : 0.12 }}
         >
           {hero.masthead}
         </motion.h1>
 
-        <motion.div
-          className="mt-5 flex flex-wrap items-end justify-between gap-4"
+        <motion.p
+          className="scroll-cue mt-6 m-0 text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--steel)]"
           initial={reduceMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ ...entrance, delay: reduceMotion ? 0 : 0.4 }}
+          transition={{ ...entrance, delay: reduceMotion ? 0 : 0.38 }}
         >
-          <p className="m-0 max-w-[20em] font-[family-name:var(--font-editorial)] text-[clamp(18px,2.4vw,28px)] italic leading-[1.2] text-[var(--ivory)]">
-            {hero.line}
-          </p>
-          <p className="scroll-cue m-0 text-[11px] uppercase tracking-[0.18em] text-[var(--muted)]">
-            {hero.scrollNote} ↓
-          </p>
-        </motion.div>
+          {hero.scrollNote} ↓
+        </motion.p>
 
         <p className="visually-hidden">{site.personName} — official website</p>
-      </div>
+      </motion.div>
     </section>
   );
 }
