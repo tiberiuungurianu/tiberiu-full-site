@@ -60,7 +60,7 @@ Configured in code:
 
 - Banner on first visit: **Accept** / **Reject**
 - Choice stored in `localStorage` key `tiberiu_consent_v1`
-- **Privacy** control (bottom-right) reopens preferences
+- **Privacy** text link in the contact footer reopens preferences
 - Reject → PostHog opted out; Cloudflare beacon not loaded by our script
 - Accept → PostHog + optional CF beacon load asynchronously
 

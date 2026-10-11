@@ -466,10 +466,6 @@
       "#tiberiu-consent button{appearance:none;border:1px solid var(--line,rgba(245,243,238,.18));background:transparent;color:inherit;padding:10px 14px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}",
       "#tiberiu-consent button.tc-accept{background:var(--text,#f5f3ee);color:var(--bg,#090909);border-color:transparent}",
       "#tiberiu-consent button:focus-visible{outline:1px solid var(--text,#f5f3ee);outline-offset:2px}",
-      "#tiberiu-privacy{position:fixed;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));z-index:110;border:1px solid var(--line,rgba(245,243,238,.18));background:rgba(9,9,9,.9);color:var(--muted,rgba(245,243,238,.7));padding:8px 10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}",
-      "#tiberiu-privacy:focus-visible{outline:1px solid var(--text,#f5f3ee);outline-offset:2px}",
-      "#tiberiu-privacy[hidden]{display:none!important}",
-      "body.tc-banner-open #tiberiu-privacy{display:none!important}",
     ].join("");
     document.head.appendChild(style);
   }
@@ -502,15 +498,11 @@
     }
 
     var privacy = document.getElementById("tiberiu-privacy");
-    if (!privacy) {
-      privacy = document.createElement("button");
-      privacy.id = "tiberiu-privacy";
-      privacy.type = "button";
-      privacy.textContent = "Privacy";
+    if (privacy && !privacy.dataset.bound) {
+      privacy.dataset.bound = "1";
       privacy.addEventListener("click", function () {
         showBanner(true);
       });
-      document.body.appendChild(privacy);
     }
 
     if (state.consent) {
@@ -522,16 +514,13 @@
 
   function showBanner(open) {
     var banner = document.getElementById("tiberiu-consent");
-    var privacy = document.getElementById("tiberiu-privacy");
     if (!banner) return;
     if (open) {
       banner.hidden = false;
       document.body.classList.add("tc-banner-open");
-      if (privacy) privacy.hidden = true;
     } else {
       banner.hidden = true;
       document.body.classList.remove("tc-banner-open");
-      if (privacy) privacy.hidden = false;
     }
   }
 
